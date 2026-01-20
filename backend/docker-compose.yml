@@ -1,0 +1,16 @@
+services:
+  db:
+    image: pgvector/pgvector:pg16 
+    container_name: postgres_db_week6
+    restart: always
+    environment:
+      - POSTGRES_USER=${DB_USER}
+      - POSTGRES_PASSWORD=${DB_PASS}
+      - POSTGRES_DB=fastapi_week6
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata_week6:/var/lib/postgresql/data
+
+volumes:
+  pgdata_week6:
